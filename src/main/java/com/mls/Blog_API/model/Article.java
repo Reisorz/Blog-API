@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
+@Table(name = "article")
 public class Article {
 
     @Id
