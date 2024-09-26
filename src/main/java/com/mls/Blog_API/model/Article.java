@@ -2,6 +2,7 @@ package com.mls.Blog_API.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.awt.*;
 import java.util.Date;
@@ -22,6 +23,8 @@ public class Article {
     private String articleTitle;
     @Column(columnDefinition = "MEDIUMTEXT")
     private String articleBody;
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     private Date articleDate;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
