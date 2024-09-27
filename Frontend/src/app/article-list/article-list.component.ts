@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Article } from '../article';
 import { ArticleService } from '../article.service';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-list',
@@ -13,6 +13,7 @@ export class ArticleListComponent {
   articles: Article[];
 
   constructor(private articleService: ArticleService, private router: Router) {}
+
 
   ngOnInit() {
     this.getArticles();
