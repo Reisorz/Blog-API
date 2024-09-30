@@ -10,6 +10,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { AddArticleComponent } from './add-article/add-article.component';
 import { FormsModule } from '@angular/forms';
+import { ArticleViewComponent } from './article-view/article-view.component';
 
 
 
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     ArticleListComponent,
     FooterComponent,
-    AddArticleComponent
+    AddArticleComponent,
+    ArticleViewComponent
   ],
   imports: [
     BrowserModule,

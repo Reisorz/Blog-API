@@ -17,12 +17,10 @@
   </a>
   <hr />
   <div *ngFor="let article of articles">
-    <a href="/" class="links-sin-estilo">
-      <div class="noticia">
+      <a class="noticia" href="javascript:void(0)" (click)="viewArticle(article.articleId)">
         <div class="titulo-noticia">{{ article.articleTitle }}</div>
         <div class="fecha">{{ article.articleDate }}</div>
-      </div>
-    </a>
+      </a>
     <hr />
   </div>
 </div>

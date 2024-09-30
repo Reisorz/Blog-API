@@ -7,7 +7,7 @@ import java.util.List;
 public interface IArticleService {
     public List<Article> listArticles();
 
-    public Article searchArticleById(Integer articleId);
+    public Article searchArticleById(Long articleId);
 
     public List<Article> searchArticleByTitle (String articleTitle);
 

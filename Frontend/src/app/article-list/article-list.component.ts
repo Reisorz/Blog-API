@@ -23,4 +23,8 @@ export class ArticleListComponent {
     this.articleService.getArticleList().subscribe((data => {this.articles = data}));
   }
 
+  viewArticle(id: number) {
+    this.router.navigate(['view-article', id]);
+  }
+
 }

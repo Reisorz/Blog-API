@@ -24,7 +24,7 @@ public class ArticleService implements IArticleService{
     }
 
     @Override
-    public Article searchArticleById(Integer articleId) {
+    public Article searchArticleById(Long articleId) {
         return articleRepository.findById(Long.valueOf(articleId)).orElse(null);
     }
 

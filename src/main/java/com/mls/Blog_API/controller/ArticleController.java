@@ -1,10 +1,12 @@
 package com.mls.Blog_API.controller;
 
+import com.mls.Blog_API.exception.NotFoundExecption;
 import com.mls.Blog_API.model.Article;
 import com.mls.Blog_API.service.ArticleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,5 +36,15 @@ public class ArticleController {
     public Article addTask(@RequestBody Article article) {
         logger.info("Added article: " + article);
         return this.articleService.saveArticle(article);
+    }
+
+    @GetMapping("articles/view-article{id}")
+    public ResponseEntity<Article> getArticleById (@PathVariable Long id) {
+        Article article = articleService.searchArticleById(id);
+        if (article != null) {
+            return ResponseEntity.ok(article);
+        } else {
+            throw new NotFoundExecption("Articles with id " + id + " not found.");
+        }
     }
 }
