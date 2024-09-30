@@ -1,14 +1,26 @@
-
 <!-- Articles-->
+<div class="top">
+  <div><h1 class="titulo">MyBlog</h1></div>
+  <div></div>
+
+  <div class="subtitulo">
+    <footer>Science, food, wildlife, technology and much more!</footer>
+    <div></div>
+  </div>
+</div>
 
 <div class="articulos">
-    <div *ngFor="let article of articles">
-        <a href="/" class="links-sin-estilo">
-        <div class="noticia"> 
-            <div class="titulo-noticia"> {{article.articleTitle}}</div>
-            <div class="fecha"> {{article.articleDate}} </div>
-        </div>
-        </a>
-        <hr/>
-    </div>
-</div>  
+  <a href="/add-article" class="add-article">
+    <div class="add-article-div">+ Add new article</div>
+  </a>
+  <hr />
+  <div *ngFor="let article of articles">
+    <a href="/" class="links-sin-estilo">
+      <div class="noticia">
+        <div class="titulo-noticia">{{ article.articleTitle }}</div>
+        <div class="fecha">{{ article.articleDate }}</div>
+      </div>
+    </a>
+    <hr />
+  </div>
+</div>

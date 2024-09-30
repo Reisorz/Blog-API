@@ -38,17 +38,3 @@ h1{
     font-family: sans-serif;
 }
 
-.titulo{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-    
-}
-
-.subtitulo{
-
-    display: flex;
-    margin-bottom: 80px;
-    justify-content: space-between;
-    
-}

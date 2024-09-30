@@ -8,6 +8,7 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
+import { AddArticleComponent } from './add-article/add-article.component';
 
 
 
@@ -16,7 +17,8 @@ import { provideRouter } from '@angular/router';
     AppComponent,
     NavbarComponent,
     ArticleListComponent,
-    FooterComponent
+    FooterComponent,
+    AddArticleComponent
   ],
   imports: [
     BrowserModule,
