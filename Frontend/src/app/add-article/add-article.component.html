@@ -11,21 +11,21 @@
 
 
 <!--Form-->
-<div class="article-form-container">
+<form class="article-form-container" (ngSubmit)="onSubmit()">
     <div class="article-form">
         <div class="mb-3">
             <label for="articleTitle" class="form-label text-light h4">Title</label>
-            <input type="text" class="form-control bg-dark text-white" id="articleTitle" name="articleTitle">
+            <input type="text" class="form-control bg-dark text-white" id="articleTitle" name="articleTitle" [(ngModel)]="article.articleTitle" required="required">
         </div>
         
         <div class="mb-3">
             <label for="articleBody" class="form-label text-light h4">Article body</label>
-            <textarea class="form-control bg-dark text-white" id="articleBody" style="height: 500px"></textarea>
+            <textarea class="form-control bg-dark text-white" id="articleBody" name="articleBody" [(ngModel)]="article.articleBody" style="height: 500px" required="required"></textarea>
         </div>
 
         <div> 
             <label for="articleTags" class="form-label text-light h4">Tags</label>
-            <select class="form-select bg-dark text-white" aria-label="Default select example" id="articleTags" name="articleTags">
+            <select class="form-select bg-dark text-white" aria-label="Default select example" id="articleTags" name="articleTags" [(ngModel)]="article.articleTags">
                 <option selected>Select tags</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -39,4 +39,4 @@
         </div>
 
     </div>
-</div>
+</form>
