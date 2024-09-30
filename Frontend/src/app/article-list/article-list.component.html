@@ -2,24 +2,13 @@
 <!-- Articles-->
 
 <div class="articulos">
-
-    <a href="/" class="links-sin-estilo">
-    <div class="noticia"> 
-        <div class="titulo-noticia"> Aqui va el artículo 1</div>
-        <div class="fecha"> Fecha 1 </div>
+    <div *ngFor="let article of articles">
+        <a href="/" class="links-sin-estilo">
+        <div class="noticia"> 
+            <div class="titulo-noticia"> {{article.articleTitle}}</div>
+            <div class="fecha"> {{article.articleDate}} </div>
+        </div>
+        </a>
+        <hr/>
     </div>
-    </a>
-    <hr/>
-
-
-
-
-    <a href="index.html" class="links-sin-estilo">
-    <div class="noticia"> 
-        <div class="titulo-noticia"> Aqui va el artículo 1</div>
-        <div class="fecha"> Fecha 1 </div>
-    </div>
-    </a>
-    <hr/>
-
 </div>  

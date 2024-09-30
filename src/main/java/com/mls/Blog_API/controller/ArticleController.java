@@ -35,7 +35,4 @@ public class ArticleController {
         logger.info("Added article: " + article);
         return this.articleService.saveArticle(article);
     }
-
-
-
 }
