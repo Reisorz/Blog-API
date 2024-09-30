@@ -1,1 +1,42 @@
-<p>add-article works!</p>
+<!--Title-->
+<div class="top">
+    <div><h2 class="titulo">Add article</h2></div>
+    <div></div>
+  
+    <div class="subtitulo">
+      <footer>Create your new article and don't forget the tags!</footer>
+      <div></div>
+    </div>
+</div>
+
+
+<!--Form-->
+<div class="article-form-container">
+    <div class="article-form">
+        <div class="mb-3">
+            <label for="articleTitle" class="form-label text-light h4">Title</label>
+            <input type="text" class="form-control bg-dark text-white" id="articleTitle" name="articleTitle">
+        </div>
+        
+        <div class="mb-3">
+            <label for="articleBody" class="form-label text-light h4">Article body</label>
+            <textarea class="form-control bg-dark text-white" id="articleBody" style="height: 500px"></textarea>
+        </div>
+
+        <div> 
+            <label for="articleTags" class="form-label text-light h4">Tags</label>
+            <select class="form-select bg-dark text-white" aria-label="Default select example" id="articleTags" name="articleTags">
+                <option selected>Select tags</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="btn btn-success me-3">Add article</button>
+            <a href="/" class="btn btn-danger">Cancel</a>
+        </div>
+
+    </div>
+</div>
