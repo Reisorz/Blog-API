@@ -38,7 +38,7 @@ public class ArticleController {
         return this.articleService.saveArticle(article);
     }
 
-    @GetMapping("articles/view-article{id}")
+    @GetMapping("articles/view-article/{id}")
     public ResponseEntity<Article> getArticleById (@PathVariable Long id) {
         Article article = articleService.searchArticleById(id);
         if (article != null) {

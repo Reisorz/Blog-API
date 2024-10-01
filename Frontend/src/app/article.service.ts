@@ -21,7 +21,7 @@ export class ArticleService {
   }
 
   getArticleById(articleId: number) {
-    return this.clientHttp.get<Article>(`${this.urlBase}/${articleId}`);
+    return this.clientHttp.get<Article>(`${this.urlBase}/view-article/${articleId}`);
   }
 
 }
