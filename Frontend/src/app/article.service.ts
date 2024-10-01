@@ -20,4 +20,8 @@ export class ArticleService {
     return this.clientHttp.post<Article>(this.urlBase, article);
   }
 
+  getArticleById(articleId: number) {
+    return this.clientHttp.get<Article>(`${this.urlBase}/${articleId}`);
+  }
+
 }

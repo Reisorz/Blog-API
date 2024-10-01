@@ -12,12 +12,12 @@
 <!-- Articles-->
 
 <div class="articulos">
-  <a href="/add-article" class="add-article">
-    <div class="add-article-div">+ Add new article</div>
-  </a>
-  <hr />
+
+  <div class="add-article-div" [routerLink]="['/add-article']">+ Add new article</div>
+
+  <hr/>
   <div *ngFor="let article of articles">
-      <a class="noticia" href="javascript:void(0)" (click)="viewArticle(article.articleId)">
+      <a class="noticia" [routerLink]="['/view-article', article.articleId]">
         <div class="titulo-noticia">{{ article.articleTitle }}</div>
         <div class="fecha">{{ article.articleDate }}</div>
       </a>
