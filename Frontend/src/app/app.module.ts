@@ -11,6 +11,7 @@ import { provideRouter } from '@angular/router';
 import { AddArticleComponent } from './add-article/add-article.component';
 import { FormsModule } from '@angular/forms';
 import { ArticleViewComponent } from './article-view/article-view.component';
+import { EditArticleComponent } from './edit-article/edit-article.component';
 
 
 
@@ -21,7 +22,8 @@ import { ArticleViewComponent } from './article-view/article-view.component';
     ArticleListComponent,
     FooterComponent,
     AddArticleComponent,
-    ArticleViewComponent
+    ArticleViewComponent,
+    EditArticleComponent
   ],
   imports: [
     BrowserModule,

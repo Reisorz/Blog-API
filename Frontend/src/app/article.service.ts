@@ -24,4 +24,8 @@ export class ArticleService {
     return this.clientHttp.get<Article>(`${this.urlBase}/view-article/${articleId}`);
   }
 
+  editArticle(articleId: number, article: Article): Observable<Article> {
+    return this.clientHttp.put<Article>(`${this.urlBase}/edit-article/${articleId}`, article);
+  }
+
 }
