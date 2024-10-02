@@ -47,4 +47,14 @@ public class ArticleController {
             throw new NotFoundExecption("Articles with id " + id + " not found.");
         }
     }
+
+    @PutMapping("articles/edit-article/{id}")
+    public ResponseEntity<Article> editArticle (@PathVariable Long id, @RequestBody Article requestedArticle) {
+        Article article = articleService.searchArticleById(id);
+        article.setArticleTitle(requestedArticle.getArticleTitle());
+        article.setArticleBody(requestedArticle.getArticleBody());
+        article.setArticleTags(requestedArticle.getArticleTags());
+        articleService.saveArticle(article);
+        return ResponseEntity.ok(article);
+    }
 }
