@@ -11,7 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 //http://localhost:8080/blog-app
@@ -56,5 +58,17 @@ public class ArticleController {
         article.setArticleTags(requestedArticle.getArticleTags());
         articleService.saveArticle(article);
         return ResponseEntity.ok(article);
+    }
+
+    @DeleteMapping("articles/delete-article/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteArticle (@PathVariable Long id) {
+        Article article = articleService.searchArticleById(id);
+        if (article == null) {
+            throw new NotFoundExecption("Article with Id = " + id + " not found.");
+        }
+        articleService.deleteArticle(article);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
     }
 }

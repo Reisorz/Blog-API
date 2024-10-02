@@ -3,6 +3,7 @@ import { Article } from '../article';
 import { ArticleService } from '../article.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { error } from 'console';
 
 @Component({
   selector: 'app-article-view',
@@ -25,7 +26,18 @@ export class ArticleViewComponent {
       }
     );
   }
-
   
+  deleteArticle() {
+    this.articleService.deleteArticle(this.id).subscribe(
+      {
+        next: (data) => this.goToArticleList(),
+        error: (error) => console.log(error)
+      }
+    )
+  }
+
+  goToArticleList() {
+    this.router.navigate(['/']);
+  }
 
 }

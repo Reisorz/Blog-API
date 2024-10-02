@@ -13,6 +13,7 @@
 <!--Form-->
 <form class="article-form-container" (ngSubmit)="onSubmit()">
     <div class="article-form">
+        
         <div class="mb-3">
             <label for="articleTitle" class="form-label text-light h4">Title</label>
             <input type="text" class="form-control bg-dark text-white" id="articleTitle" name="articleTitle" [(ngModel)]="article.articleTitle" required="required">
@@ -35,7 +36,7 @@
 
         <div class="form-buttons">
             <button type="submit" class="btn btn-success me-3">Save changes</button>
-            <a [routerLink]="['/']" class="btn btn-danger">Cancel</a>
+            <a [routerLink]="['/view-article', article.articleId]" class="btn btn-danger">Cancel</a>
         </div>
 
     </div>

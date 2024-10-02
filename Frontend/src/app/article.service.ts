@@ -28,4 +28,8 @@ export class ArticleService {
     return this.clientHttp.put<Article>(`${this.urlBase}/edit-article/${articleId}`, article);
   }
 
+  deleteArticle(articleId: number): Observable<Object> {
+    return this.clientHttp.delete(`${this.urlBase}/delete-article/${articleId}`)
+  }
+
 }

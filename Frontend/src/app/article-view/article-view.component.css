@@ -129,6 +129,19 @@
     cursor: pointer;
 }
 
+
+/*Delete modal*/
+
+.modal-content {
+    background-color: #333;
+    color: whitesmoke;
+  }
+
+.modal-body {
+    background-color: #505050;
+}
+
+
 /*Article body*/
 
 .article-body-div {
