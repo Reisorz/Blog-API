@@ -22,23 +22,25 @@ public class Tag {
     private String tagName;
     private String tagDescription;
 
-    @ManyToMany(targetEntity = Article.class, fetch = FetchType.LAZY)
-    @JsonBackReference
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH } )
     @JoinTable(
             name = "article_tags",
-            joinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "tagId"),
-            inverseJoinColumns = @JoinColumn(name = "article_id", referencedColumnName = "articleId")
+            joinColumns = @JoinColumn(name = "tag_id"),
+            inverseJoinColumns = @JoinColumn(name = "article_id")
     )
-    private Set<Tag> tagArticles = new HashSet<>();
+    private Set<Article> tagArticles;
 
 
 
 
-    public Set<Tag> getTagArticles() {
+
+
+
+    public Set<Article> getTagArticles() {
         return tagArticles;
     }
 
-    public void setTagArticles(Set<Tag> tagArticles) {
+    public void setTagArticles(Set<Article> tagArticles) {
         this.tagArticles = tagArticles;
     }
 

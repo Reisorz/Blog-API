@@ -36,14 +36,16 @@ public class Article {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm" , timezone = "Europe/Madrid")
     private Date articleDate;
 
-    @ManyToMany(targetEntity = Tag.class, fetch = FetchType.LAZY)
-    @JsonBackReference
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH } )
     @JoinTable(
             name = "article_tags",
-            joinColumns = @JoinColumn(name = "article_id", referencedColumnName = "articleId"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "tagId")
+            joinColumns = @JoinColumn(name = "article_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-    private Set<Tag> articleTags = new HashSet<>();
+    private Set<Tag> articleTags;
+
+
+
 
 
 
