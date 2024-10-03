@@ -1,8 +1,10 @@
 package com.mls.Blog_API.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.awt.*;
 import java.util.Date;
@@ -25,6 +27,7 @@ public class Article {
     private String articleBody;
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm" , timezone = "Europe/Madrid")
     private Date articleDate;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(

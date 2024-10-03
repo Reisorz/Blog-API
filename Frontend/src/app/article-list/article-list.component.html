@@ -19,7 +19,7 @@
   <div *ngFor="let article of articles">
       <a class="noticia" [routerLink]="['/view-article', article.articleId]">
         <div class="titulo-noticia">{{ article.articleTitle }}</div>
-        <div class="fecha">{{ article.articleDate }}</div>
+        <div class="fecha">{{ article.articleDate}}</div>
       </a>
     <hr />
   </div>
