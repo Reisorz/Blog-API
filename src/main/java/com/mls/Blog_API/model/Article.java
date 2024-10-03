@@ -29,13 +29,15 @@ public class Article {
     @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm" , timezone = "Europe/Madrid")
     private Date articleDate;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(targetEntity = Tag.class, fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinTable(
             name = "article_tags",
-            joinColumns = @JoinColumn(name = "article_id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id")
+            joinColumns = @JoinColumn(name = "article_id", referencedColumnName = "articleId"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "tagId")
     )
     private List<Tag> articleTags;
+
+
 
     public Long getArticleId() {
         return articleId;

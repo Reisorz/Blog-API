@@ -3,6 +3,8 @@ package com.mls.Blog_API.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -15,4 +17,5 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tagId;
     private String tagName;
+    private String tagDescription;
 }

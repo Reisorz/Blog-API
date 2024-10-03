@@ -19,7 +19,7 @@ public class TagService implements ITagService{
     }
 
     @Override
-    public Tag searchTagById(Integer tagId) {
+    public Tag searchTagById(Long tagId) {
         return tagRepository.findById(Long.valueOf(tagId)).orElse(null);
     }
 

@@ -8,7 +8,7 @@ import java.util.List;
 public interface ITagService {
     public List<Tag> listTags();
 
-    public Tag searchTagById(Integer tagId);
+    public Tag searchTagById(Long tagId);
 
     public List<Tag> searchTagByName (String tagName);
 
