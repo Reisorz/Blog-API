@@ -35,7 +35,7 @@ public class ArticleController {
     }
 
     @PostMapping("/articles")
-    public Article addTask(@RequestBody Article article) {
+    public Article addArticle(@RequestBody Article article) {
         logger.info("Added article: " + article);
         return this.articleService.saveArticle(article);
     }

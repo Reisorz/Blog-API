@@ -1,5 +1,6 @@
 package com.mls.Blog_API.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,7 +9,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.awt.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -22,20 +25,25 @@ public class Article {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long articleId;
+
     private String articleTitle;
+
     @Column(columnDefinition = "MEDIUMTEXT")
     private String articleBody;
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm" , timezone = "Europe/Madrid")
     private Date articleDate;
-    @ManyToMany(targetEntity = Tag.class, fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+
+    @ManyToMany(targetEntity = Tag.class, fetch = FetchType.LAZY)
+    @JsonBackReference
     @JoinTable(
             name = "article_tags",
             joinColumns = @JoinColumn(name = "article_id", referencedColumnName = "articleId"),
             inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "tagId")
     )
-    private List<Tag> articleTags;
+    private Set<Tag> articleTags = new HashSet<>();
 
 
 
@@ -71,11 +79,11 @@ public class Article {
         this.articleDate = articleDate;
     }
 
-    public List<Tag> getArticleTags() {
+    public Set<Tag> getArticleTags() {
         return articleTags;
     }
 
-    public void setArticleTags(List<Tag> articleTags) {
+    public void setArticleTags(Set<Tag> articleTags) {
         this.articleTags = articleTags;
     }
 }
