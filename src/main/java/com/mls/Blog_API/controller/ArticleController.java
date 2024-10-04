@@ -2,6 +2,7 @@ package com.mls.Blog_API.controller;
 
 import com.mls.Blog_API.exception.NotFoundExecption;
 import com.mls.Blog_API.model.Article;
+import com.mls.Blog_API.model.Tag;
 import com.mls.Blog_API.service.ArticleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,10 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 //http://localhost:8080/blog-app

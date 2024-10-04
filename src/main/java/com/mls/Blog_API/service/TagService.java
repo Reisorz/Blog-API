@@ -24,7 +24,7 @@ public class TagService implements ITagService{
     }
 
     @Override
-    public List<Tag> searchTagByName(String tagName) {
+    public Tag searchTagByName(String tagName) {
         return tagRepository.searchTagByName(tagName);
     }
 

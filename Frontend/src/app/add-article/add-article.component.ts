@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Article } from '../article';
 import { ArticleService } from '../article.service';
 import { Router } from '@angular/router';
+import { Tag } from '../tag';
+import { TagService } from '../tag.service';
 
 @Component({
   selector: 'app-add-article',
@@ -10,8 +12,18 @@ import { Router } from '@angular/router';
 })
 export class AddArticleComponent {
   article: Article = new Article();
+  tags: Tag[];
+  selectedTags: Tag[];
 
-  constructor(private articleService: ArticleService, private router: Router) {}
+  constructor(private articleService: ArticleService, private router: Router, private tagService: TagService) {}
+
+  ngOnInit() {
+    this.getTags();
+  }
+
+  getTags() {
+    this.tagService.getTagList().subscribe((data => {this.tags = data}));
+  }
 
   onSubmit() {
     if (this.article.articleTitle !== null && this.article.articleBody != null) {
@@ -36,4 +48,7 @@ export class AddArticleComponent {
   goToArticleList() {
     this.router.navigate(['/articles']);
   }
+
+
+  
 }

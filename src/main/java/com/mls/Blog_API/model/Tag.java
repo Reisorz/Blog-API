@@ -1,12 +1,16 @@
 package com.mls.Blog_API.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 
 @Entity
 @Data
@@ -22,13 +26,9 @@ public class Tag {
     private String tagName;
     private String tagDescription;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH } )
-    @JoinTable(
-            name = "article_tags",
-            joinColumns = @JoinColumn(name = "tag_id"),
-            inverseJoinColumns = @JoinColumn(name = "article_id")
-    )
-    private Set<Article> tagArticles;
+    @ManyToMany(mappedBy = "articleTags", fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Set<Article> tagArticles = new HashSet<>();
 
 
 

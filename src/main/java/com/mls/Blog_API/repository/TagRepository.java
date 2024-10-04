@@ -10,5 +10,5 @@ import java.util.List;
 
 public interface TagRepository extends JpaRepository<Tag,Long> {
     @Query( value = "SELECT * FROM tag WHERE tag_name LIKE %:tagName%", nativeQuery = true)
-    List<Tag> searchTagByName(@Param("tagName") String tagName);
+    Tag searchTagByName(@Param("tagName") String tagName);
 }
