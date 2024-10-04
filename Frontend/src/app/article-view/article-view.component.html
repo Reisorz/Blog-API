@@ -3,15 +3,9 @@
 <!--Tags, title and date-->
 <div class="top">
 
-    <div class="article-tags">
+  <div class="article-tags">
 
-      <div class="tag-div" [routerLink]="['/']">Tag1</div>
-      <div class="tag-div" [routerLink]="['/']">Another tag</div>
-      <div class="tag-div" [routerLink]="['/']">Super long tag I dont know what to say</div>
-      <div class="tag-div" [routerLink]="['/']">Another tag</div>
-      <div class="tag-div" [routerLink]="['/']">Super long tag I dont know what to say</div>
-      <div class="tag-div" [routerLink]="['/']">Another tag</div>
-      <div class="tag-div" [routerLink]="['/']">Super long tag I dont know what to say</div>
+      <div *ngFor="let tag of article.articleTags"  class="tag-div" >{{tag.tagName}}</div>
 
     </div>
 

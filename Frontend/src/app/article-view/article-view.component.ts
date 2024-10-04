@@ -4,6 +4,8 @@ import { ArticleService } from '../article.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { error } from 'console';
+import { Tag } from '../tag';
+import { TagService } from '../tag.service';
 
 @Component({
   selector: 'app-article-view',
@@ -14,7 +16,7 @@ export class ArticleViewComponent {
   article: Article = new Article();
   id: number;
 
-  constructor(private articleService: ArticleService, private router: Router, private route: ActivatedRoute){}
+  constructor(private articleService: ArticleService, private router: Router, private route: ActivatedRoute, private tagService: TagService){}
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
@@ -26,6 +28,7 @@ export class ArticleViewComponent {
       }
     );
   }
+
   
   deleteArticle() {
     this.articleService.deleteArticle(this.id).subscribe(
