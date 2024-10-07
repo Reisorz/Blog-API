@@ -48,6 +48,10 @@ export class AddArticleComponent {
     this.router.navigate(['/articles']);
   }
 
+  addTag(){
+    
+  }
+
 
   
 }

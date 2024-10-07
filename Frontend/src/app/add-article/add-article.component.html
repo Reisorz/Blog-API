@@ -25,9 +25,10 @@
 
         <div> 
             <label for="articleTags" class="form-label text-light h4">Tags</label>
-            <select class="form-select bg-dark text-white" multiple aria-label="Default select example" id="articleTags" name="articleTags" [(ngModel)]="article.articleTags">
-                    <option *ngFor="let tag of tags" [ngValue]="tag">{{tag.tagName}}</option>
-            </select>
+            <input type="text" (keyup.enter)="addTag()" class="form-control bg-dark text-white" id="articleTags" name="articleTags" [(ngModel)]="article.articleTags" required="required">
+            <div class="added-tags">
+
+            </div>
         </div>
 
         <div class="form-buttons">
