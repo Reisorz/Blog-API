@@ -28,7 +28,6 @@ public class ArticleController {
     @GetMapping("/articles")
     public List<Article> listArticles () {
         List<Article> articles = this.articleService.listArticles();
-        articles.forEach(article -> logger.info(article.toString()));
         return articles;
     }
 

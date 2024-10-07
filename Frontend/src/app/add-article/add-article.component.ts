@@ -13,7 +13,6 @@ import { TagService } from '../tag.service';
 export class AddArticleComponent {
   article: Article = new Article();
   tags: Tag[];
-  selectedTags: Tag[];
 
   constructor(private articleService: ArticleService, private router: Router, private tagService: TagService) {}
 

@@ -45,7 +45,7 @@ public class Article {
             joinColumns = @JoinColumn(name = "article_id", referencedColumnName = "articleId"),
             inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "tagId")
     )
-    private Set<Tag> articleTags = new HashSet<>();
+    private List<Tag> articleTags;
 
 
 
@@ -84,11 +84,11 @@ public class Article {
         this.articleDate = articleDate;
     }
 
-    public Set<Tag> getArticleTags() {
+    public List<Tag> getArticleTags() {
         return articleTags;
     }
 
-    public void setArticleTags(Set<Tag> articleTags) {
+    public void setArticleTags(List<Tag> articleTags) {
         this.articleTags = articleTags;
     }
 }

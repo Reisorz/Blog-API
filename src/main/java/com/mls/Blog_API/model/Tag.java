@@ -28,19 +28,14 @@ public class Tag {
 
     @ManyToMany(mappedBy = "articleTags", fetch = FetchType.EAGER)
     @JsonIgnore
-    private Set<Article> tagArticles = new HashSet<>();
+    private List<Article> tagArticles;
 
 
-
-
-
-
-
-    public Set<Article> getTagArticles() {
+    public List<Article> getTagArticles() {
         return tagArticles;
     }
 
-    public void setTagArticles(Set<Article> tagArticles) {
+    public void setTagArticles(List<Article> tagArticles) {
         this.tagArticles = tagArticles;
     }
 

@@ -9,6 +9,7 @@ import org.springframework.core.metrics.StartupStep;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,7 +41,7 @@ public class ArticleService implements IArticleService{
 
     @Override
     public Article saveArticle(Article article) {
-        Set<Tag> articleTags = new HashSet<>();
+        List<Tag> articleTags = new ArrayList<>();
 
         for (Tag tag : article.getArticleTags()) {
             Tag existingTag = tagRepository.searchTagByName(tag.getTagName());

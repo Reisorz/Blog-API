@@ -15,6 +15,7 @@ import { TagService } from '../tag.service';
 export class ArticleViewComponent {
   article: Article = new Article();
   id: number;
+  /*IDEA: CARGAR LAS TAGS POR OTRO LADO, EL REPOSITORIO*/
 
   constructor(private articleService: ArticleService, private router: Router, private route: ActivatedRoute, private tagService: TagService){}
 
