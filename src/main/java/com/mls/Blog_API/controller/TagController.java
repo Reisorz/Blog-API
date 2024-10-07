@@ -30,7 +30,6 @@ public class TagController {
     @GetMapping("/tags")
     public List<Tag> listTags () {
         List<Tag> tags = this.tagService.listTags();
-        tags.forEach(tag -> logger.info(tag.toString()));
         return tags;
     }
 

@@ -1,0 +1,14 @@
+<!--Tags, title and date-->
+<div class="top">
+  <h2 class="titulo">Explore</h2>
+  <div></div>
+
+  <div class="date">
+    <footer>Choose a topic to find related articles!</footer>
+    <div></div>
+  </div>
+
+  <div class="article-tags">
+    <div *ngFor="let tag of tags" class="tag-div" [routerLink]="['/tag-articles', tag.tagId]">{{tag.tagName}}</div>
+  </div>
+</div>

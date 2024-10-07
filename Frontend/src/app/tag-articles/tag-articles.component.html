@@ -1,0 +1,24 @@
+<!--Title-->
+<div class="top">
+    <div><h1 class="titulo">MyBlog</h1></div>
+    <div></div>
+  
+    <div class="subtitulo">
+      <footer>Science, food, wildlife, technology and much more!</footer>
+      <div></div>
+    </div>
+  </div>
+  
+  <!-- Articles-->
+  
+  <div class="articulos">
+    <hr/>
+    <div *ngFor="let article of articles">
+        <a class="noticia" [routerLink]="['/view-article', article.articleId]">
+          <div class="titulo-noticia">{{ article.articleTitle }}</div>
+          <div class="fecha">{{ article.articleDate}}</div>
+        </a>
+      <hr />
+    </div>
+  </div>
+  
