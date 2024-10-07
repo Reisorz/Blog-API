@@ -1,5 +1,6 @@
 package com.mls.Blog_API.service;
 
+import com.mls.Blog_API.model.Article;
 import com.mls.Blog_API.model.Tag;
 import com.mls.Blog_API.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,13 @@ public class TagService implements ITagService{
     @Override
     public Tag searchTagById(Long tagId) {
         return tagRepository.findById(Long.valueOf(tagId)).orElse(null);
+    }
+
+    @Override
+    public List<Article> searchArticlesByTagId(Long tagId) {
+        Tag tag = tagRepository.findById(Long.valueOf(tagId)).orElse(null);
+        List<Article> articles = tag.getTagArticles();
+        return articles;
     }
 
     @Override

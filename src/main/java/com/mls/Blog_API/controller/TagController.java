@@ -39,7 +39,7 @@ public class TagController {
         return this.tagService.saveTag(tag);
     }
 
-    @GetMapping("tags/view-tags/{id}")
+    @GetMapping("tags/view-tag/{id}")
     public ResponseEntity<Tag> getTagById (@PathVariable Long id) {
         Tag tag = tagService.searchTagById(id);
         if (tag != null) {
@@ -47,6 +47,11 @@ public class TagController {
         } else {
             throw new NotFoundExecption("Tag with id " + id + " not found.");
         }
+    }
+
+    @GetMapping("tags/tag-articles/{id}")
+    public List<Article> searchArticlesByTagId (@PathVariable Long id) {
+        return this.tagService.searchArticlesByTagId(id);
     }
 
     @PutMapping("tags/edit-tag/{id}")

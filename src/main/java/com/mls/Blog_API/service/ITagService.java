@@ -1,5 +1,6 @@
 package com.mls.Blog_API.service;
 
+import com.mls.Blog_API.model.Article;
 import com.mls.Blog_API.model.Tag;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface ITagService {
     public Tag saveTag(Tag tag);
 
     public void deleteTag(Tag tag);
+
+    public List<Article> searchArticlesByTagId(Long tagId);
 }
