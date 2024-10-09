@@ -18,14 +18,6 @@ export class AddArticleComponent {
 
   constructor(private articleService: ArticleService, private router: Router, private tagService: TagService) {}
 
-  ngOnInit() {
-    this.getTags();
-  }
-
-  getTags() {
-    this.tagService.getTagList().subscribe((data => {this.tags = data}));
-  }
-
   // Avoids submit with enter key
   preventSubmit(event: KeyboardEvent) {
     if (event.key === 'Enter') {
@@ -60,23 +52,20 @@ export class AddArticleComponent {
   //Tags
   addTag(){
     const tagText = document.querySelector('#articleTags') as HTMLInputElement;
-    const addedTags = document.querySelector('#addedTags') as HTMLInputElement;
-    console.log(tagText.value);
+    const addedTags = document.querySelector('#addedTags') as HTMLElement;
 
     //Creating new div with tag value
-    // const newDiv = document.createElement('div') as HTMLInputElement;
-    // newDiv.classList.add('tag-div');
-    // newDiv.textContent = tagText.value;
-    // addedTags.appendChild(newDiv);
-
     const newDiv = `<div class="tag-div">${tagText.value}<i class="bi bi-x"></i></div>`;
     addedTags.insertAdjacentHTML('beforeend', newDiv);
 
+    //Adding value to the tag list
+    const tag = new Tag();
+    tag.tagName = tagText.value;
+    this.article.articleTags.push(tag);    
+    console.log(this.article);
+
     //Removing value from the input
-    tagText.value = '';
+    tagText.value= "";
 
   }
-
-
-  
 }

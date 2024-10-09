@@ -25,8 +25,8 @@
 
         <div> 
             <label for="articleTags" class="form-label text-light h4">Tags</label>
-            <input type="text" (keyup.enter)="addTag()" class="form-control bg-dark text-white" id="articleTags" name="articleTags" [(ngModel)]="article.articleTags" required="required">
-            <div class="added-tags" id="addedTags"></div>
+            <input type="text" (keyup.enter)="addTag()" class="form-control bg-dark text-white" id="articleTags" name="articleTags" required="required">
+            <div class="added-tags" id="addedTags" [(ngModel)]="article.articleTags"></div>
         </div>
 
         <div class="form-buttons">

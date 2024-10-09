@@ -5,5 +5,5 @@ export class Article {
     articleTitle: string;
     articleBody: string;
     articleDate: Date;
-    articleTags: Tag[];
+    articleTags: Tag[] = [];
 }
