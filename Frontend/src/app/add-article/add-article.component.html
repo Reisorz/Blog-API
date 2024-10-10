@@ -24,9 +24,12 @@
         </div>
 
         <div> 
-            <label for="articleTags" class="form-label text-light h4">Tags</label>
-            <input type="text" (keyup.enter)="addTag()" class="form-control bg-dark text-white" id="articleTags" name="articleTags" required="required">
-            <div class="added-tags" id="addedTags" [(ngModel)]="article.articleTags"></div>
+            <label for="inputTags" class="form-label text-light h4">Tags</label>
+            <input type="text" (keyup.enter)="addTag()" class="form-control bg-dark text-white" id="inputTags"  required="required">
+
+            <div class="added-tags" id="articleTags" [(ngModel)]="article.articleTags" name="articleTags">
+                <div *ngFor="let tag of tags" class="tag-div" (click)="removeTag()">{{tag.tagName}}<i class="bi bi-x"></i></div>
+            </div>
         </div>
 
         <div class="form-buttons">

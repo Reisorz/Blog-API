@@ -13,7 +13,8 @@ import { TagService } from '../tag.service';
 })
 export class AddArticleComponent {
   article: Article = new Article();
-  tags: Tag[];
+  tags: Tag[] = [];
+  addTagId: number = 0;
   
 
   constructor(private articleService: ArticleService, private router: Router, private tagService: TagService) {}
@@ -26,6 +27,8 @@ export class AddArticleComponent {
   }
 
   onSubmit() {
+    this.article.articleTags = this.tags;
+    console.log(this.article);
     if (this.article.articleTitle !== null && this.article.articleBody != null) {
       this.saveArticle();
     }
@@ -51,21 +54,30 @@ export class AddArticleComponent {
 
   //Tags
   addTag(){
-    const tagText = document.querySelector('#articleTags') as HTMLInputElement;
-    const addedTags = document.querySelector('#addedTags') as HTMLElement;
+    const tagText = document.querySelector('#inputTags') as HTMLInputElement;
+    const addedTags = document.querySelector('#articleTags') as HTMLElement;
 
-    //Creating new div with tag value
-    const newDiv = `<div class="tag-div">${tagText.value}<i class="bi bi-x"></i></div>`;
-    addedTags.insertAdjacentHTML('beforeend', newDiv);
+    //Exceptions (Later to Add:  when reapeted tag)
+    if(!tagText.value){
+      return;
+    }
 
-    //Adding value to the tag list
+    //Adding value to the tag array
     const tag = new Tag();
     tag.tagName = tagText.value;
-    this.article.articleTags.push(tag);    
-    console.log(this.article);
+    this.tags.push(tag);    
+
+    console.log(this.tags);
 
     //Removing value from the input
     tagText.value= "";
 
   }
+
+  removeTag() {
+    console.log("remove tag working on id: ");
+    
+  }
+
+
 }
