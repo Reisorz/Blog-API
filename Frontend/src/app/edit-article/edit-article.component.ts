@@ -62,8 +62,14 @@ export class EditArticleComponent {
       const tagText = document.querySelector('#inputTags') as HTMLInputElement;
       const addedTags = document.querySelector('#articleTags') as HTMLElement;
   
-      //Exceptions (Later to Add:  when reapeted tag)
+      //Exceptions 
       if(!tagText.value){
+        return;
+      }
+
+      if(!tagText || this.tags.some(tag => tag.tagName.toLocaleLowerCase() === tagText.value.toLocaleLowerCase())){
+        alert("Don't use duplicated tags!")
+        tagText.value = "";
         return;
       }
   
@@ -78,26 +84,10 @@ export class EditArticleComponent {
       tagText.value= "";
     }
   
-    removeTag(event: { target: any; srcElement: any; currentTarget: any; }) {
-  
-      //Get ID of clicked element
+    removeTag(i: number) {
       console.log("remove function");
-      var target = event.target || event.srcElement || event.currentTarget;
-      var idAttr = target.attributes.id;
-      var value = idAttr.nodeValue;
-  
-      //Get the div and tag name
-      const deleteTag = document.querySelector(`#${value}`) as HTMLElement;
-      const tagToDelete = value.slice(5);
-  
-      //Delete the tag in tags array
-      for (let i = 0; i < this.tags.length; i++ ) {
-        if(tagToDelete === this.tags[i].tagName) {
-          this.tags.splice(i,1);
-        }
-      }
-  
-      //Remove div
+      const deleteTag = document.querySelector(`#tagID${i}`) as HTMLElement;
+      this.tags.splice(i,1);
       deleteTag.remove();
     }
-}
+  }
