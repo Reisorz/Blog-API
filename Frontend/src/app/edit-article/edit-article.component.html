@@ -11,12 +11,12 @@
 
 
 <!--Form-->
-<form class="article-form-container" (ngSubmit)="onSubmit()" (keydown)="preventSubmit($event)">
+<form class="article-form-container" (ngSubmit)="onSubmit()">
     <div class="article-form">
         
         <div class="mb-3">
             <label for="articleTitle" class="form-label text-light h4">Title</label>
-            <input type="text" class="form-control bg-dark text-white" id="articleTitle" name="articleTitle" [(ngModel)]="article.articleTitle" required="required">
+            <input type="text" class="form-control bg-dark text-white" id="articleTitle" name="articleTitle" [(ngModel)]="article.articleTitle" required="required" (keydown)="preventSubmit($event)">
         </div>
         
         <div class="mb-3">
@@ -26,7 +26,7 @@
 
         <div> 
             <label for="inputTags" class="form-label text-light h4">Tags</label>
-            <input type="text" (keyup.enter)="addTag()" class="form-control bg-dark text-white" id="inputTags"  required="required">
+            <input type="text" (keyup.enter)="addTag()" class="form-control bg-dark text-white" id="inputTags"  required="required" (keydown)="preventSubmit($event)">
 
             <div class="added-tags" id="articleTags" [(ngModel)]="article.articleTags" name="articleTags">
                 <div *ngFor="let tag of tags" class="tag-div" id="tagId{{tag.tagName}}" (click)="removeTag($event)">{{tag.tagName}}<i class="bi bi-x" id="tagId{{tag.tagName}}"></i></div>

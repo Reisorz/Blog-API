@@ -21,11 +21,13 @@ export class EditArticleComponent {
     this.id = this.route.snapshot.params['id'];
     this.articleService.getArticleById(this.id).subscribe(
       {
-        next: (data) => this.article = data,
+        next: (data) => { this.article = data;
+          this.tags = this.article.articleTags; },
         error: (error: any) => console.log(error)
       }
     );
   }
+
 
     // Avoids submit with enter key
     preventSubmit(event: KeyboardEvent) {
