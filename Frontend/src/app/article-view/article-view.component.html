@@ -5,7 +5,7 @@
 
   <div class="article-tags">
 
-      <div *ngFor="let tag of article.articleTags"  class="tag-div" >{{tag.tagName}}</div>
+      <div *ngFor="let tag of article.articleTags"  class="tag-div" [routerLink]="['/tag-articles', tag.tagId]" >{{tag.tagName}}</div>
 
     </div>
 
