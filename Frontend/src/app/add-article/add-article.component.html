@@ -28,7 +28,7 @@
             <input type="text" (keyup.enter)="addTag()" class="form-control bg-dark text-white" id="inputTags"  required="required">
 
             <div class="added-tags" id="articleTags" [(ngModel)]="article.articleTags" name="articleTags">
-                <div *ngFor="let tag of tags" class="tag-div" (click)="removeTag()">{{tag.tagName}}<i class="bi bi-x"></i></div>
+                <div *ngFor="let tag of tags" class="tag-div" id="tagId{{tag.tagName}}" (click)="removeTag($event)">{{tag.tagName}}<i class="bi bi-x" id="tagId{{tag.tagName}}"></i></div>
             </div>
         </div>
 

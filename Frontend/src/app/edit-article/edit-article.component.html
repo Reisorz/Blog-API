@@ -11,7 +11,7 @@
 
 
 <!--Form-->
-<form class="article-form-container" (ngSubmit)="onSubmit()">
+<form class="article-form-container" (ngSubmit)="onSubmit()" (keydown)="preventSubmit($event)">
     <div class="article-form">
         
         <div class="mb-3">
@@ -25,13 +25,12 @@
         </div>
 
         <div> 
-            <label for="articleTags" class="form-label text-light h4">Tags</label>
-            <select class="form-select bg-dark text-white" aria-label="Default select example" id="articleTags" name="articleTags" [(ngModel)]="article.articleTags">
-                <option selected>Select tags</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+            <label for="inputTags" class="form-label text-light h4">Tags</label>
+            <input type="text" (keyup.enter)="addTag()" class="form-control bg-dark text-white" id="inputTags"  required="required">
+
+            <div class="added-tags" id="articleTags" [(ngModel)]="article.articleTags" name="articleTags">
+                <div *ngFor="let tag of tags" class="tag-div" id="tagId{{tag.tagName}}" (click)="removeTag($event)">{{tag.tagName}}<i class="bi bi-x" id="tagId{{tag.tagName}}"></i></div>
+            </div>
         </div>
 
         <div class="form-buttons">

@@ -14,7 +14,6 @@ import { TagService } from '../tag.service';
 export class AddArticleComponent {
   article: Article = new Article();
   tags: Tag[] = [];
-  addTagId: number = 0;
   
 
   constructor(private articleService: ArticleService, private router: Router, private tagService: TagService) {}
@@ -28,7 +27,6 @@ export class AddArticleComponent {
 
   onSubmit() {
     this.article.articleTags = this.tags;
-    console.log(this.article);
     if (this.article.articleTitle !== null && this.article.articleBody != null) {
       this.saveArticle();
     }
@@ -71,13 +69,28 @@ export class AddArticleComponent {
 
     //Removing value from the input
     tagText.value= "";
-
   }
 
-  removeTag() {
-    console.log("remove tag working on id: ");
-    
+  removeTag(event: { target: any; srcElement: any; currentTarget: any; }) {
+
+    //Get ID of clicked element
+    console.log("remove function");
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.id;
+    var value = idAttr.nodeValue;
+
+    //Get the div and tag name
+    const deleteTag = document.querySelector(`#${value}`) as HTMLElement;
+    const tagToDelete = value.slice(5);
+
+    //Delete the tag in tags array
+    for (let i = 0; i < this.tags.length; i++ ) {
+      if(tagToDelete === this.tags[i].tagName) {
+        this.tags.splice(i,1);
+      }
+    }
+
+    //Remove div
+    deleteTag.remove();
   }
-
-
 }
